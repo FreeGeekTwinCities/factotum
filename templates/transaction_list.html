@@ -3,7 +3,8 @@
 {?transactions}
   <ul>
 	{#transactions}
-	    <li><a href="{baseURL}/transaction/{value._id}">{value.date}</a></li>
+	    
+	    <li><a href="{baseURL}/transaction/{value._id}"><script>var d=new Date({value.audit.createdTime});var n=d.toLocaleString();document.write(n)</script> {value.party.name} {value.transaction_type}</a></li>
   	{/transactions}
   </ul>
  {:else}
