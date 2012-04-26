@@ -1,11 +1,11 @@
-<h2>Index of pages</h2>
+<h2>Index of transactions</h2>
 
-{?pages}
+{?transactions}
   <ul>
-	{#pages}
-	    <li><a href="{baseURL}/page/{value.slug}">{value.title}</a></li>
-  	{/pages}
+	{#transactions}
+	    <li><a href="{baseURL}/transaction/{value._id}">{value.date}</a></li>
+  	{/transactions}
   </ul>
  {:else}
-  <p>No pages.</p>
-{/pages}
+  <p>No transactions.</p>
+{/transactions}
