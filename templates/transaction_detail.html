@@ -16,23 +16,30 @@
     
     <p>{transaction.date}</p>
     
+    {?transaction.items}
     <table>
-    <tr><th>Quantity</th><th>Description</th><th>Unit Price</th></tr>
-        <tr>    
-	<td>{transaction.items.quantity}</td>
-        </tr>
+        <tr><th>Quantity</th><th>Description</th><th>Unit Price</th></tr>
+        {#transaction.items}
+            <tr><td>{.}</td>
+        {/transaction.items}
     </table>
-    
     <br/>
-    <table>
-        <tr><th>Payment Type</th><th>Date Received</th><th>Amount</th><tr>
-            <tr>
-                <td>{transaction.payment}</td>
-            </tr>
-    </table>
+    {/transaction.items}
     
-    <br/>
-    <table>
-        <tr><th>Comments</th><tr>
-        <tr>{transaction.comments}</tr>
-    </table>
+    {?transaction.payments}
+        <table>
+            <tr><th>Payment Type</th><th>Date Received</th><th>Amount</th><tr>
+            {#transaction.payments}
+                <tr><td>{.}</td></tr>
+            {/transaction.payments}
+        </table>
+        <br/>
+    {/transaction.payments}
+
+    
+    {?transaction.comments}
+        <table>
+            <tr><th>Comments</th><tr>
+            <tr>{transaction.comments}</tr>
+        </table>
+    {/transaction.comments}
