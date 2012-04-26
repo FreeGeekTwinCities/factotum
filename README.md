@@ -1,8 +1,6 @@
-# Kanso Pages
+# FrontDesk
 
-Pages is a CouchApp that I used for learning [Kanso](http://kan.so) and
-CouchDB. It might also be useful for building a simple website.  
-
+This is a basic application for tracking "front desk" info (sales and donations) for Free Geek Twin Cities.
 
 ## Requirements
 
@@ -14,17 +12,17 @@ This app uses the Kanso admin to edit your data.  Push the pages and admin apps
 to your couch once you cloned or unpacked it:
 
 ```
-git clone https://github.com/mandric/pages
-cd pages
-kanso push pages
+git clone https://github.com/bdunnette/frontdesk
+cd frontdesk
+kanso push frontdesk
 ```
 
 ```
 git clone https://github.com/mandric/admin
 cd admin
-kanso push pages 
+kanso push frontdesk
 ```
 
 ## Usage
 
-Manage your pages with the Kanso admin.
+Manage your transactions with the Kanso admin.
