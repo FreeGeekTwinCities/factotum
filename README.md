@@ -4,7 +4,7 @@ This is a basic application for tracking "front desk" info (sales and donations)
 
 ## Requirements
 
-Install [Kanso](http://kan.so)
+Install [Kanso](http://kan.so/install)
 
 ## Install 
 
