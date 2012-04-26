@@ -1,0 +1,63 @@
+{% extends "transaction_base.html" %}
+
+{% block title %}{{transaction.transaction_type.description}} #{{ transaction.id }}{% endblock %}
+
+{% block content %}
+    <!-- Eventually, logo and address info might be better outside template -->
+    <div class="logo"><h1>Free<br/>Geek</h1>Twin Cities</div>
+    
+    <div class="receipt-header">{{transaction.transaction_type.code}} Receipt</div>
+    
+    <p>Free Geek Twin Cities<br/>
+    2310 Snelling Ave<br/>
+    Minneapolis, MN 55404<br/>
+    http://freegeektwincities.org</p>
+        
+    <p>
+    <strong>{{transaction.party}}</strong><br/>
+    
+    {% if transaction.party.email %}
+        <a href="mailto:{{transaction.party.email}}">{{transaction.party.email}}</a>
+    {% endif %}
+    </p>
+    
+    <p>{{transaction.date}}</p>
+    
+    <table>
+    <tr><th>Quantity</th><th>Description</th><th>Unit Price</th><tr>
+    {% for line in transaction.transactionline_set.all %}
+        <tr class="{% cycle 'odd' 'even' %}">
+            <td>{{ line.quantity|floatformat }}</td>
+            <td>
+                {% if line.description %}
+                    {{line.description}}
+                {% else %}
+                    {{line.gizmo_type}}{{ line.quantity|pluralize }}
+                {% endif %}
+            </td>
+            <td>{{line.unit_price}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    
+    <br/>
+    <table>
+        <tr><th>Payment Type</th><th>Date Received</th><th>Amount</th><tr>
+        {% for payment in transaction.payment_set.all %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td>{{payment.payment_method}}</td>
+                <td>{{payment.date}}</td>
+                <td>{{payment.amount}}</td>
+            </tr>
+        {% endfor %}    
+    </table>
+    
+    <br/>
+    {% if transaction.comments %}
+    <table>
+        <tr><th>Comments</th><tr>
+        <tr>{{transaction.comments}}</tr>
+    </table>
+    {% endif %}
+    
+{% endblock %}
