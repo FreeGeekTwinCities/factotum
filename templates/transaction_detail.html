@@ -2,19 +2,25 @@
     <!-- Eventually, logo and address info might be better outside template -->
     <div class="logo"><h1>Free<br/>Geek</h1>Twin Cities</div>
     
-    <div class="receipt-header">{transaction.transaction_type} Receipt</div>
+    <div class="receipt-header">{transaction.transaction_type}<br/>Receipt</div>
+
+    <div style="float:right; clear:right; text-align:right"><p>Free Geek Twin Cities is an<br/>all-volunteer organization that <br/>reuses and recycles computers<br/>to provide technical education<br/>and access to our community.</p></div>
     
     <p>Free Geek Twin Cities<br/>
     2310 Snelling Ave<br/>
     Minneapolis, MN 55404<br/>
     http://freegeektwincities.org</p>
-        
+    
     <p>
     <strong>{transaction.party.name}</strong><br/>
     {transaction.party.email}
     </p>
     
-    <p>{transaction.date}</p>
+    {?transaction.date}
+        <p>{transaction.date}</p>
+    {:else}
+        <p><script>var d=new Date({transaction.audit.createdTime});var n=d.toLocaleDateString();document.write(n)</script></p>
+    {/transaction.date}
     
     {?transaction.items}
     <table>

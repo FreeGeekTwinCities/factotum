@@ -17,7 +17,12 @@
       font-family:sans-serif;
       padding:4px;
     }
-
+    
+    /*the following gives "zebra-striped" tables, based on http://www.cssnewbie.com/styling-zebra-striped-tables-with-css/ */
+    tr.odd {background-color: #F0F0F0;}
+    td {border-top: 2px solid LightGray;}
+    th {background-color: White}
+    
     div.logo {
         font-family:Monofur, monospace;
         font-size:2em;
@@ -34,7 +39,7 @@
 
     div.receipt-header {
         font-family:Monofur, monospace;
-        font-size:3em;
+        font-size:2em;
         /* color:white; */
         /* background-color:black; */
         text-transform:uppercase;
@@ -56,9 +61,5 @@
         vertical-align:middle;
         width:80%;
     }
-
-    /* The following gives "zebra-striped" tables, courtesy of IronZebra: http://www.ironzebra.com/news/27/how-to-make-zebra-striped-tables-with-django ; the "solid none none none" border gives us a border only on the top of the cell (right, bottom, and left, respectively, are "none")*/
-    tr.even td {background-color: White; border-style:solid none none none; border-width:2px;}
-    tr.odd td {background-color: LightGray; border-style:solid none none none; border-width:2px;}
 
 }
