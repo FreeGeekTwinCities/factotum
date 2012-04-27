@@ -8,8 +8,8 @@ Install [Kanso](http://kan.so/install)
 
 ## Install 
 
-This app uses the Kanso admin to edit your data.  Push the pages and admin apps
-to your couch once you cloned or unpacked it:
+This app uses the Kanso admin to edit your data.  Push the frontdesk and admin apps
+to your [couch](http://couchdb.apache.org/) once you clone or unpack them:
 
 ```
 git clone https://github.com/bdunnette/frontdesk
@@ -25,4 +25,10 @@ kanso push frontdesk
 
 ## Usage
 
-Manage your transactions with the Kanso admin.
+Manage your transactions with the Kanso admin - if you pushed to a CouchDB on localhost, the URL will be something like:
+
+http://localhost:5984/frontdesk/_design/admin/_rewrite/frontdesk/
+
+To see a list of existing transactions, go to:
+
+http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
