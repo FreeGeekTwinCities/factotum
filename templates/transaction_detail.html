@@ -24,9 +24,9 @@
     
     {?transaction.items}
     <table>
-        <tr><th>Item</th></tr>
+        <tr><th>Quantity</th><th>Description</th></tr>
         {#transaction.items}
-            <tr><td>{.}</td>
+            <tr><td>{.quantity}</td><td>{.description}</td></tr>
         {/transaction.items}
     </table>
     <br/>
