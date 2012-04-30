@@ -11,6 +11,9 @@
     "duality": {
         "base_template": "base.html"
     },
+    "git_info" : {
+        "skip_uncommitted" : true
+    },
     "dependencies": {
         "modules": null,
         "properties": null,
