@@ -3,13 +3,31 @@
 This is a basic application for tracking "front desk" info (sales and donations) for Free Geek Twin Cities.
 
 ## Requirements
-
-Install [Kanso](http://kan.so/install)
+Install [CouchDB](http://couchdb.apache.org), version 1.1 or later
 
 ## Install 
 
+The easiest way to install, once you have CouchDB running, is to take advantage of its replication features:
+1. Go to your CouchDB's [Futon](http://guide.couchdb.org/draft/tour.html#welcome) - if you're installing on localhost, this is normally: http://localhost:5984/_utils
+2. Create a "frontdesk" database
+3. Visit the Replication section
+4. Replicate from our demo database: http://fgtc.iriscouch.com/frontdesk 
+
+## Usage
+
+Manage your transactions with the Kanso admin - if you pushed to a CouchDB on localhost, the URL will be something like:
+
+http://localhost:5984/frontdesk/_design/admin/_rewrite/frontdesk/
+
+To see a list of existing transactions, go to:
+
+http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
+
+## Development
+Install [Kanso](http://kan.so/install)
+
 This app uses the Kanso admin to edit your data.  Push the frontdesk and admin apps
-to your [couch](http://couchdb.apache.org/) once you clone or unpack them:
+to your "couch" once you clone or unpack them:
 
 ```
 git clone https://github.com/bdunnette/frontdesk
@@ -22,13 +40,3 @@ git clone https://github.com/mandric/admin
 cd admin
 kanso push frontdesk
 ```
-
-## Usage
-
-Manage your transactions with the Kanso admin - if you pushed to a CouchDB on localhost, the URL will be something like:
-
-http://localhost:5984/frontdesk/_design/admin/_rewrite/frontdesk/
-
-To see a list of existing transactions, go to:
-
-http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
