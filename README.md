@@ -3,11 +3,16 @@
 This is a basic application for tracking "front desk" info (sales and donations) for Free Geek Twin Cities.
 
 ## Requirements
-Install [CouchDB](http://couchdb.apache.org), version 1.1 or later
+Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since Ubuntu only has 1.0, you can:
+
+* Try [build-couchdb](http://github.com/iriscouch/build-couchdb)
+* Install from a PPA (e.g. https://launchpad.net/~novacut/+archive/stable - though this may only be compatible with 12.04)
+* Use Debian - [wheezy has version 1.1.1](http://packages.debian.org/wheezy/couchdb), as of May 2012
 
 ## Install 
 
 The easiest way to install, once you have CouchDB running, is to take advantage of its replication features:
+
 1. Go to your CouchDB's [Futon](http://guide.couchdb.org/draft/tour.html#welcome) - if you're installing on localhost, this is normally: http://localhost:5984/_utils
 2. Create a "frontdesk" database
 3. Visit the Replication section
