@@ -3,7 +3,7 @@
 This is a basic application for tracking "front desk" info (sales and donations) for Free Geek Twin Cities.
 
 ## Requirements
-Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since Ubuntu only has 1.0, you can:
+Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since [Ubuntu only has 1.0](http://packages.ubuntu.com/search?keywords=couchdb)<grumble>, you can:
 
 * Try [build-couchdb](http://github.com/iriscouch/build-couchdb)
 * Install from a PPA (e.g. https://launchpad.net/~novacut/+archive/stable - though this may only be compatible with 12.04)
