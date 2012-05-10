@@ -1,6 +1,6 @@
 {
     "name": "frontdesk",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "a prototype application to track 'front desk' info",
     "load": "lib/app",
     "modules": "lib",
