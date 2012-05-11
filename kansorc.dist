@@ -1,0 +1,16 @@
+exports.env = {
+    // the default env will be used when you just do "kanso push"
+    'default': {
+        db: 'http://username:password@hostname:5984/dbname' 
+    },
+    // you can also define named environments this one will 
+    // be used when you do "kanso push production"
+    'production': {
+        db: 'http://username:password@production-hostname:5984/production-db',        
+        // tells the module package to minify modules.js
+        minify: true,
+        // useful when running behind a virtual host and 
+        // you want to force the baseURL to something
+        baseURL: '/foo'
+    }
+};
