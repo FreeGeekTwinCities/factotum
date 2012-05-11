@@ -11,7 +11,7 @@ Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since [Ubun
 
 ## Install 
 
-The easiest way to install, once you have CouchDB running, is to take advantage of its replication features:
+The easiest way to install, once you have CouchDB running, is to take advantage of its replication features - either download and run the [replicate-iriscouch script](./replicate-iriscouch.sh), or manually:
 
 1. Go to your CouchDB's [Futon](http://guide.couchdb.org/draft/tour.html#welcome) - if you're installing on localhost, this is normally: http://localhost:5984/_utils
 2. Create a "frontdesk" database
