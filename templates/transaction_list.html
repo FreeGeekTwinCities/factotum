@@ -13,3 +13,13 @@
 
 <p><a href="{baseURL}/transaction/add">New Transaction</a></p>
 
+{?timesheet_lines}
+  <h2>Recent Work<h2>
+  <ul>
+    {#timesheet_lines}
+      <li>{value.creator} spent {value.hours} hours on {value.work}</li>
+    {/timesheet_lines}
+  </ul> 
+{/timesheet_lines}
+
+<p><a href="{baseURL}/timesheet/add">New Timesheet Line</a></p>
