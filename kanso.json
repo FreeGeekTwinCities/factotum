@@ -1,6 +1,6 @@
 {
     "name": "frontdesk",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "a prototype application to track 'front desk' info",
     "load": "lib/app",
     "modules": "lib",
@@ -14,6 +14,11 @@
     "git_info" : {
         "skip_uncommitted" : true
     },
+    "less" : {
+	"compress": true,
+	"compile": ["static/css/main.less"],
+	"remove_from_attachments": true
+    },
     "dependencies": {
         "modules": null,
         "properties": null,
@@ -23,6 +28,8 @@
         "dust": null,
         "duality-dust": null,
         "couchtypes": null,
+	"less-precompiler": null,
+	"bootstrap": null,
 	"git-info": null
     }
 }

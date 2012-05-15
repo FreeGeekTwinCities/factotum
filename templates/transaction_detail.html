@@ -23,7 +23,7 @@
     {/transaction.date}
     
     {?transaction.items}
-    <table>
+    <table class="receipt-table">
         <tr><th>Quantity</th><th>Description</th></tr>
         {#transaction.items}
             <tr><td>{.quantity}</td><td>{.description}</td></tr>
@@ -33,7 +33,7 @@
     {/transaction.items}
     
     {?transaction.payments}
-        <table>
+        <table class="receipt-table">
             <tr><th>Payment Received</th><tr>
             {#transaction.payments}
                 <tr><td>{.}</td></tr>
@@ -44,7 +44,7 @@
 
     
     {?transaction.comments}
-        <table>
+        <table class="receipt-table">
             <tr><th>Comments</th><tr>
             <tr>{transaction.comments}</tr>
         </table>

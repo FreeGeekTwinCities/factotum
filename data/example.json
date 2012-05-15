@@ -1,0 +1,57 @@
+[
+	{
+	   "type": "transaction",
+	   "party": {
+	       "name": "The BOFH",
+	       "email": "bofh@aol.com",
+	       "city": "Landfall",
+	       "referred_by": "Search for computer recycling"
+	   },
+	   "audit": {
+	       "createdTime": 1337025865043
+	   },
+	   "transaction_type": "Donation",
+	   "items": [
+	       {
+		   "quantity": 2,
+		   "description": "2 Cisco switches"
+	       },
+	       {
+		   "quantity": 4,
+		   "description": "4 Token Ring NICs"
+	       },
+	       {
+		   "quantity": 3,
+		   "description": "3 Dell servers"
+	       }
+	   ],
+	   "payments": [
+	       "$21 cash"
+	   ]
+	},
+	{
+       "type": "transaction",
+       "party": {
+           "name": "J Random Citizen",
+           "city": "Hilltop",
+           "referred_by": "Search for computer recycling"
+       },
+       "audit": {
+           "createdTime": 1336829765052
+       },
+       "transaction_type": "Donation",
+       "items": [
+           {
+               "quantity": 1,
+               "description": "1 gateway laptop"
+           },
+           {
+               "quantity": 2,
+               "description": "2 Sony desktops"
+           }
+       ],
+       "payments": [
+           "$7.50 cash"
+       ]
+    }
+]
