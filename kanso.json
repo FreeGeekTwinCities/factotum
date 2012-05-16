@@ -30,6 +30,8 @@
         "couchtypes": null,
 	"less-precompiler": null,
 	"bootstrap": null,
+	"jquery": null,
+	"json2": null,
 	"git-info": null
     }
 }

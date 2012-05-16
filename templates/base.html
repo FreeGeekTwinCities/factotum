@@ -26,12 +26,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">FGTC FrontDesk</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="{baseURL}/transactions">Transactions</a></li>
+              <li><a href="{baseURL}/timesheets">Timesheets</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -49,10 +48,15 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{baseURL}/static/js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript">
+    	// so the jquery plugins work
+    	window.$ = window.jQuery = require('jquery');
+    </script>
+    <script type="text/javascript">
+    	require('json2');
+    </script>
     <script src="{baseURL}/static/js/json2.js"></script>
     <script src="{baseURL}/modules.js"></script>
-    <script src="{baseURL}/bootstrap/js/jquery.js"></script>
     <script src="{baseURL}/bootstrap/js/bootstrap-transition.js"></script>
     <script src="{baseURL}/bootstrap/js/bootstrap-alert.js"></script>
     <script src="{baseURL}/bootstrap/js/bootstrap-modal.js"></script>
