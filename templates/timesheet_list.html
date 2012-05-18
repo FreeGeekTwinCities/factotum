@@ -1,25 +1,14 @@
 <h2>Index of timesheets</h2>
 
+<p><a href="{baseURL}/timesheet/add">New timesheet</a></p>
+
 {?timesheets}
+  <h3>Recent Work:</h3>
   <ul>
 	{#timesheets}
-	    
-	    <li><a href="{baseURL}/timesheet/{value._id}"><script>var d=new Date({value.audit.createdTime});var n=d.toLocaleString();document.write(n)</script> {value.party.name} {value.timesheet_type}</a></li>
+	    <li><a href="{baseURL}/timesheet/{value._id}">{value.volunteer} spend {value.hours} hours on {value.work_type}</a></li>
   	{/timesheets}
   </ul>
  {:else}
   <p>No timesheets.</p>
 {/timesheets}
-
-<p><a href="{baseURL}/timesheet/add">New timesheet</a></p>
-
-{?timesheet_lines}
-  <h2>Recent Work<h2>
-  <ul>
-    {#timesheet_lines}
-      <li>{value.creator} spent {value.hours} hours on {value.work}</li>
-    {/timesheet_lines}
-  </ul> 
-{/timesheet_lines}
-
-<p><a href="{baseURL}/timesheet/add">New Timesheet Line</a></p>
