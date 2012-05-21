@@ -1,0 +1,14 @@
+<h2>Index of systems</h2>
+
+<!--<p><a href="{baseURL}/system/add">New system</a></p>-->
+
+{?systems}
+  <h3>Recent Systems:</h3>
+  <ul>
+	{#systems}
+	    <li><a href="{baseURL}/system/{value._id}">{value.vendor} {value.product}</a></li>
+  	{/systems}
+  </ul>
+ {:else}
+  <p>No systems.</p>
+{/systems}

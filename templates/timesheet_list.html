@@ -6,7 +6,7 @@
   <h3>Recent Work:</h3>
   <ul>
 	{#timesheets}
-	    <li><a href="{baseURL}/timesheet/{value._id}">{value.volunteer} spend {value.hours} hours on {value.work_type}</a></li>
+	    <li><a href="{baseURL}/timesheet/{value._id}">{value.volunteer} spent {value.hours} hours on {value.work_type}</a></li>
   	{/timesheets}
   </ul>
  {:else}

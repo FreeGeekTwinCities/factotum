@@ -1,0 +1,14 @@
+<h2>{system.vendor} {system.product} {system.serial}</h2>
+
+{?system.configuration}
+    Configuration:
+    <ul>
+    {#system.configuration}
+        <li>{.}</li>
+    {/system.configuration}
+    </ul>
+{/system.configuration}
+
+{?system.configuration.chassis}
+<p>But really, it's just a {system.configuration.chassis}, yo.</p>
+{/system.configuration.chassis}
