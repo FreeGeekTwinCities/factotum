@@ -2,6 +2,15 @@
 
 <p><a href="{baseURL}/timesheet/add">New timesheet</a></p>
 
+{?users}
+    Users: <script>console.log(JSON.stringify{users})</script> {users}
+    <ol>
+    {#users}
+        <li></li>
+    {/users}
+    </ol>
+{/users}
+
 {?timesheets}
   <h3>Recent Work:</h3>
   <ul>

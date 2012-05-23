@@ -28,10 +28,12 @@
         "dust": null,
         "duality-dust": null,
         "couchtypes": null,
-	"less-precompiler": null,
-	"bootstrap": null,
-	"jquery": null,
-	"json2": null,
-	"git-info": null
+	    "less-precompiler": null,
+    	"bootstrap": null,
+	    "jquery": null,
+    	"json2": null,
+    	"users": null,
+    	"session": null,
+    	"git-info": null
     }
 }
