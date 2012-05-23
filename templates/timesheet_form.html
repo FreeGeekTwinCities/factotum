@@ -4,3 +4,11 @@
   {form|s}
   <input type="submit" value="{button}" />
 </form>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        var users = ['bdunnette', 'btimm', 'artifactor', 'aberhow', 'pscheie'].sort();
+        $('#id_volunteer').typeahead({source: users, items:5});
+        $('#id_work_code').hide();
+    });
+</script>

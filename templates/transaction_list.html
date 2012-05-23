@@ -6,7 +6,7 @@
   <h3>Recent Transactions:</h3>
   <ul>
 	{#transactions}
-	    <li><a href="{baseURL}/transaction/{value._id}"><script>var d=new Date({value.audit.createdTime});var n=d.toLocaleString();document.write(n)</script> {value.party.name} {value.transaction_type}</a> (<a href="{baseURL}/transaction/edit/{value._id}">Edit</a>)</li>
+	    <li><a href="{baseURL}/transaction/{value._id}"><script>var d=new Date({value.audit.createdTime});var n=d.toLocaleString();document.write(n)</script> {value.party.name} {value.transaction_type}</a> <!--(<a href="{baseURL}/transaction/edit/{value._id}">Edit</a>)--></li>
   	{/transactions}
   </ul>
  {:else}
