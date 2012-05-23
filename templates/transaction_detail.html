@@ -17,7 +17,7 @@
     </p>
     
     {?transaction.date}
-        <p>{transaction.date}</p>
+        <p><script>var d=new Date({transaction.date.year},{transaction.date.month},{transaction.date.day});var n=d.toLocaleDateString();document.write(n)</script></p>
     {:else}
         <p><script>var d=new Date({transaction.audit.createdTime});var n=d.toLocaleDateString();document.write(n)</script></p>
     {/transaction.date}
