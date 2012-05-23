@@ -24,4 +24,4 @@ for row in rows:
     salt = "bar"
     password_salted = "-hashed-" + password + "," + salt
     jdata = json.dumps({"type":"user", "roles":[], "_id":%s, "name":username, "password":password_salted}) % (userid, username, password_salted)
-    urllib2.urlopen("http://localhost:5984/frontdesk/_bulk_docs", jdata)
+    urllib2.urlopen("http://localhost:5984/_users/_bulk_docs", jdata)
