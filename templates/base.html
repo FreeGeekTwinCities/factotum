@@ -10,34 +10,17 @@
     <script src="{baseURL}/static/js/jquery-1.7.2.min.js"></script>
             
     <!-- Le styles -->
-    <link rel="stylesheet" href="{baseURL}/static/css/main.css" />
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{baseURL}/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{baseURL}/kanso-topbar/topbar.css" />
   </head>
 
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="{baseURL}">FGTC FrontDesk</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="{baseURL}/transactions">Transactions</a></li>
-              <li><a href="{baseURL}/timesheets">Timesheets</a></li>
-              <li><a href="{baseURL}/systems">Systems</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+    <div id="kanso-topbar">
+        <div class="appname">FrontDesk</div>
+        <ul>
+            <li><a href="{baseURL}/transactions">Transactions</a></li>
+            <li><a href="{baseURL}/timesheets">Timesheets</a></li>
+        </ul>
     </div>
 
     <div class="container">
@@ -68,6 +51,7 @@
         $(document).ready(function(){
            $("tr:even").addClass("even");
            $("tr:odd").addClass("odd");
+           require('kanso-topbar').init();
         });
     </script>
 

@@ -28,10 +28,11 @@
         "dust": null,
         "duality-dust": null,
         "couchtypes": null,
-	    "less-precompiler": null,
+        "less-precompiler": null,
     	"bootstrap": null,
-	    "users": null,
+        "users": null,
     	"session": null,
+        "kanso-topbar": null,
     	"git-info": null
     }
 }
