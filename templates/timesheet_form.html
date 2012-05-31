@@ -6,15 +6,18 @@
 </form>
 
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-        var users = [];
-        $.getJSON('/_users/_design/_users/_view/all_users', function(data) {
-          $.each(data['rows'], function(key, val) {
-            users.push(val.key);
-          });
-        });
-        users.sort();
-        $('#id_volunteer').typeahead({source: users, items:5});
+    $(document).ready(function() {
+        var userlist = [];
+        var users = require("users");
+        users.list(function (err, list) {
+            if (list) {
+                $.each(list, function(key, val) {
+                    userlist.push(val.id.split(':')[1]);
+                });
+           };
+        });  
+        userlist.sort();
+        $('#id_volunteer').typeahead({source: userlist, items:5});
         $('#id_work_code').hide();
     });
 </script>
