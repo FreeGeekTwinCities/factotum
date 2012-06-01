@@ -2,6 +2,7 @@
 
 <form method="{method}" action="{action}">
   {form|s}
+  <div id="show-date"><a data-toggle="collapse" href="#date-fieldset">Show/Hide Date</a></div>
   <input type="submit" value="{button}" />
 </form>
 
@@ -19,5 +20,8 @@
         userlist.sort();
         $('#id_volunteer').typeahead({source: userlist, items:5});
         $('#id_work_code').hide();
+        $("fieldset:contains('Audit')").collapse('hide');
+        $("fieldset:contains('Date')").attr('id', 'date-fieldset');
+        $('#date-fieldset').collapse('hide');
     });
 </script>
