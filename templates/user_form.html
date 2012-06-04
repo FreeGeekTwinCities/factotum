@@ -1,0 +1,22 @@
+<h1>{form_title}</h1>
+
+<form method="{method}" action="{action}">
+  {form|s}
+  <input type="submit" value="{button}" />
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var users = require("users");
+        users.create('testuser', 'testing', {roles: ['example']}, function (err) {
+            if (err) {
+                console.log(err);
+            } 
+            users.get('testuser', function (err, doc) {
+                if (err) {alert(err)}// there was an error fetching the user document
+                else {alert(doc.name + " has roles: " + doc.roles)};    // success
+            });
+            
+        });
+    });
+</script>
