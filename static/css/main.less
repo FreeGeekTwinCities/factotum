@@ -49,14 +49,19 @@ border:5px solid #000;
 padding:20px;
 }
 
-table.receipt-table {
-vertical-align:middle;
-width:80%;
-border-style:double;
-border-width:5px;
+/* Make everything in an "errors" div red */
+div.errors * {
+color:red;
 }
 
-div.errors {
-color:red;
+/* Make all (*) items within a "required" div bolder (having a higher "font weight") */
+div.required * {
+font-weight:700;
+}
+
+div.hint {
+font-size:90%;
+font-weight:200;
+clear:right;
 }
 }

@@ -23,7 +23,7 @@
     {/transaction.date}
     
     {?transaction.items}
-    <table class="receipt-table">
+    <table class="table table-striped table-bordered">
         <tr><th>Quantity</th><th>Description</th></tr>
         {#transaction.items}
             <tr><td>{.quantity}</td><td>{.description}</td></tr>
