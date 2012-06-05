@@ -1,0 +1,27 @@
+<h2>User: {user.name}</h2>
+
+<p>{user._id}</p>
+<p>{user.password}</p>
+{?user.roles}
+    Roles:
+    <ul>
+    {#user.roles}
+        <li>{.}</li>
+    {/user.roles}
+    </ul>
+{/user.roles}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var users = require("users");
+        console.log({user.roles});
+        users.create('{user.name}', '{user.password}', {roles: []}, function (err, response) {
+            if (err) {console.log(err);}// there was an error creating the user
+            else {console.log(response);}  // successfully created new user
+        });
+        users.get('{user.name}', function (err, doc) {
+            if (err) {console.log(err);}// there was an error fetching the user document
+            else  {console.log(doc);}// success
+        });  
+    });
+</script>
