@@ -1,0 +1,3 @@
+[submodule "packages/kanso-topbar"]
+	path = packages/kanso-topbar
+	url = https://github.com/FreeGeekTwinCities/fgtc-topbar.git
