@@ -1,27 +1,56 @@
+#!/usr/bin/python
 import psycopg2
-import urllib2
-import json
+import sys
+from couchdb.client import Server
+
+if len(sys.argv) < 2:
+    print "Please run the script as follows:"
+    print "%s tryton-db-user tryton-db-password couchdb-url (couchdb-url is optional)" % sys.argv[0]
+    sys.exit(1)
+elif len(sys.argv) > 3:
+    server = Server(sys.argv[3])
+else:
+    server = Server()
 
 # Try to connect
-try:
-    conn=psycopg2.connect("dbname='foo' user='dbuser' password='mypass'")
-except:
-    print "I am unable to connect to the database."
+connect_string = "host='localhost' dbname='test' user='%s' password='%s'" % (sys.argv[1], sys.argv[2])
+couch = server['_users']
 
-cur = conn.cursor()
 try:
-    cur.execute("""SELECT * from bar""")
+    conn=psycopg2.connect(connect_string)
+    cur = conn.cursor()
 except:
-    print "I can't SELECT from bar"
+    print "I am unable to connect to the database using connect_string " + connect_string
 
-rows = cur.fetchall()
-print "\nRows: \n"
+try:
+    cur.execute("""SELECT id,name,login,password,salt from res_user""")
+    rows = cur.fetchall()
+except:
+    print "I can't SELECT from res_user"
+
 for row in rows:
-    print "   ", row[1]
-    username = "dunn0172"
+    print "   ", row
+    username = row[2]
     userid = "org.couchdb.user:" + username
-    password = "foo"
-    salt = "bar"
-    password_salted = "-hashed-" + password + "," + salt
-    jdata = json.dumps({"type":"user", "roles":[], "_id":%s, "name":username, "password":password_salted}) % (userid, username, password_salted)
-    urllib2.urlopen("http://localhost:5984/_users/_bulk_docs", jdata)
+    if row[3] == None:
+        password = ''    
+    else:
+        password = row[3]
+    if row[4] == None:
+        salt = ''
+    else:
+        salt = row[4]
+    if password and salt:
+        user_doc = {}
+        user_doc['type'] = 'user'
+        user_doc['roles'] = []
+        user_doc['name'] = username
+        user_doc['_id'] = userid
+        user_doc['password_sha'] = password
+        user_doc['salt'] = salt
+        doc_exists = couch.get(userid)
+        if doc_exists:
+            print "User %s already exists in CouchDB, skipping..." % username
+        else:
+            doc_id, doc_rev = couch.save(user_doc)
+            print "Added user %s (%s)" % (username, doc_id)
