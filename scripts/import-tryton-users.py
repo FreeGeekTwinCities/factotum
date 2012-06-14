@@ -11,9 +11,10 @@ elif len(sys.argv) > 3:
     server = Server(sys.argv[3])
 else:
     server = Server()
+print server
 
 # Try to connect
-connect_string = "host='localhost' dbname='test' user='%s' password='%s'" % (sys.argv[1], sys.argv[2])
+connect_string = "host='wyatt' dbname='fgtc' user='%s' password='%s'" % (sys.argv[1], sys.argv[2])
 couch = server['_users']
 
 try:
@@ -29,7 +30,7 @@ except:
     print "I can't SELECT from res_user"
 
 for row in rows:
-    print "   ", row
+    #print "   ", row
     username = row[2]
     userid = "org.couchdb.user:" + username
     if row[3] == None:
@@ -48,9 +49,8 @@ for row in rows:
         user_doc['_id'] = userid
         user_doc['password_sha'] = password
         user_doc['salt'] = salt
-        doc_exists = couch.get(userid)
-        if doc_exists:
-            print "User %s already exists in CouchDB, skipping..." % username
-        else:
+        try:
             doc_id, doc_rev = couch.save(user_doc)
             print "Added user %s (%s)" % (username, doc_id)
+	except:
+	    print "User %s already exists" % username
