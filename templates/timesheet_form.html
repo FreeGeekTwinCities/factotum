@@ -2,10 +2,11 @@
 
 <form method="{method}" action="{action}">
   {form|s}
-  <div id="show-date"><a data-toggle="collapse" href="#date-fieldset">Show/Hide Date</a></div>
-  <input type="submit" value="{button}" />
+  <!--<div id="show-date"><a data-toggle="collapse" href="#date-fieldset">Show/Hide Date</a></div>-->
+  <input type="submit" value="Save Timesheet" />
 </form>
 
+<script src="{baseURL}/static/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var userlist = [];
@@ -23,5 +24,6 @@
         $("fieldset:contains('Audit')").collapse('hide');
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
         $('#date-fieldset').collapse('hide');
+        $('#id_date').datepicker({format: 'yyyy,m,dd'});
     });
 </script>
