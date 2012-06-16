@@ -1,6 +1,11 @@
-<h2>Creating user: {user.name}</h2>
+<h2>User: {user.username}</h2>
+
+{?user.name}
+<p>{user.name.given} {?user.name.nickname}"{user.name.nickname}"{/user.name.nickname} {user.name.family}<p>
+{/user.name}
 
 <p>{user._id}</p>
+
 {?user.roles}
     Roles:
     <ul>
@@ -14,11 +19,11 @@
     $(document).ready(function() {
         var users = require("users");
         console.log({user.roles});
-        users.create('{user.name}', '{user.password}', {roles: []}, function (err, response) {
+        users.create('{user.username}', '{user.password}', {roles: []}, function (err, response) {
             if (err) {console.log(err);}// there was an error creating the user
             else {console.log(response);}  // successfully created new user
         });
-        users.get('{user.name}', function (err, doc) {
+        users.get('{user.username}', function (err, doc) {
             if (err) {console.log(err);}// there was an error fetching the user document
             else  {console.log(doc);}// success
         });  
