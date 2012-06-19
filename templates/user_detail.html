@@ -1,10 +1,10 @@
-<h2>User: {user.username}</h2>
+<h2 id='username'>User: {user.username} </h2>
 
 {?user.name}
-<p>{user.name.given} {?user.name.nickname}"{user.name.nickname}"{/user.name.nickname} {user.name.family}<p>
+    <p>{user.name.given} {?user.name.nickname}"{user.name.nickname}"{/user.name.nickname} {user.name.family}<p>
 {/user.name}
 
-<p>{user._id}</p>
+<p id='user_id'>Database Record ID: {user._id}</p>
 
 {?user.roles}
     Roles:
@@ -19,13 +19,14 @@
     $(document).ready(function() {
         var users = require("users");
         console.log({user.roles});
-        users.create('{user.username}', '{user.password}', {roles: []}, function (err, response) {
-            if (err) {console.log(err);}// there was an error creating the user
-            else {console.log(response);}  // successfully created new user
-        });
         users.get('{user.username}', function (err, doc) {
-            if (err) {console.log(err);}// there was an error fetching the user document
-            else  {console.log(doc);}// success
-        });  
+            if (err) {console.log('User does not exist, creating...'); console.log(err);
+                users.create('{user.username}', '{user.password}', {roles: []}, function (err, response) {
+                    if (err) {console.log(err);}// there was an error creating the user
+                    else {$('#username').append({response.id});}  // successfully created new user
+                });}// there was an error fetching the user document
+            else  {console.log('User exists: ', doc);}// success
+        });
+        
     });
 </script>

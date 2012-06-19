@@ -1,0 +1,21 @@
+<h3>Thanks for your work on {timesheet.work_type}, {timesheet.volunteer}!</h3>
+
+<p>You've put in a total of <span id="volunteer_hours"></span> hours so far!</p>
+
+<a href="../_rewrite/timesheet/add">Enter another timesheet</a>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var hours = [];
+        var db = require("db").current();
+        /* get a string containing the current volunteer's username - this is passed as the 'volunteer' property of the timesheet object */
+        var volunteer = new String('{timesheet.volunteer}')
+        /* then, retrieve the total volunteer hours for that volunteer name */
+        db.getView('frontdesk', 'volunteer_hours_total', {'key': volunteer}, function (err, response) {
+            if (response) {
+                /* finally, take that number of hours - which is the result, or 'value' of the query we did - and set volunteer_hours' text to that value */
+                $('#volunteer_hours').text(response.rows[0].value);
+            } else {console.log(err)};
+        });  
+    });
+</script>
