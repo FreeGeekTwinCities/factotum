@@ -1,5 +1,5 @@
 <head></head>
-    <!-- Eventually, logo and address info might be better outside template -->
+    <!-- Eventually, logo and address, etc. (branding) should be stored outside of template -->
     <div class="logo"><h1>Free<br/>Geek</h1>Twin Cities</div>
     
     <div class="receipt-header">{transaction.transaction_type}<br/>Receipt</div>
@@ -16,17 +16,13 @@
     {transaction.party.email}
     </p>
     
-    {?transaction.date}
-        <p><script>var d=new Date({transaction.date.year},{transaction.date.month},{transaction.date.day});var n=d.toLocaleDateString();document.write(n)</script></p>
-    {:else}
-        <p><script>var d=new Date({transaction.audit.createdTime});var n=d.toLocaleDateString();document.write(n)</script></p>
-    {/transaction.date}
+    <p><script>var transaction_date = new Date([{transaction.date}]); document.write(transaction_date.toLocaleDateString())</script></p>
     
     {?transaction.items}
     <table class="table table-striped table-bordered">
-        <tr><th>Quantity</th><th>Description</th></tr>
+        <tr><th>Quantity</th><th>Description</th><th>Unit Price</th><th>Extended Price</th></tr>
         {#transaction.items}
-            <tr><td>{.quantity}</td><td>{.description}</td></tr>
+            <tr><td>{.quantity}</td><td>{.description}</td><td>{.unit_price}</td><td>{.extended_price}</td></tr>
         {/transaction.items}
     </table>
     <br/>
@@ -49,3 +45,5 @@
             <tr>{transaction.comments}</tr>
         </table>
     {/transaction.comments}
+    
+<script>console.log({req})</script>

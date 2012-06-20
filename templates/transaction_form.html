@@ -2,16 +2,26 @@
 
 <form method="{method}" action="{action}">
   {form|s}
-  <!--<div id="show-date"><a data-toggle="collapse" href="#date-fieldset">Show/Hide Date</a></div>-->
   <input type="submit" value="Save" />
 </form>
 
 <script src="{baseURL}/static/js/bootstrap-datepicker.js"></script>
+<script src="{baseURL}/static/js/uuid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $("fieldset:contains('Audit')").collapse('hide');
+        $('#id__id').val(uuid.v1());
+        //$('#id__rev').val('');
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
-        $('#date-fieldset').collapse('hide');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
+        var people = [];
+        var db = require("db").current();
+        db.getView('frontdesk', 'people', {'group': true}, function (err, response) {
+            if (response) {
+                $.each(response.rows, function(key, val) {
+                    people.push(val.key);
+                });
+            } else {console.log(err)};
+        });
+        $('#id_party_name').typeahead({source: people, items:5});
     });
 </script>

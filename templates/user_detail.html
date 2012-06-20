@@ -17,13 +17,22 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        var db = require("db").current();
         var users = require("users");
-        console.log({user.roles});
         users.get('{user.username}', function (err, doc) {
             if (err) {console.log('User does not exist, creating...'); console.log(err);
                 users.create('{user.username}', '{user.password}', {roles: []}, function (err, response) {
                     if (err) {console.log(err);}// there was an error creating the user
-                    else {$('#username').append({response.id});}  // successfully created new user
+                    else {
+                        console.log(response); 
+                        db.getDoc('{user._id}', null, function (err, response) {
+                            if (response) {
+                                doc = response;
+                                doc.password = ' '; // set password to blank once user is added to _users database
+                                db.saveDoc(doc, function (err, response) {console.log(err, response)});
+                            } else {console.log(err)};
+                        });
+                    };  
                 });}// there was an error fetching the user document
             else  {console.log('User exists: ', doc);}// success
         });

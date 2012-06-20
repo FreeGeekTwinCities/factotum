@@ -6,10 +6,14 @@
 </form>
 
 <script src="{baseURL}/static/js/bootstrap-datepicker.js"></script>
+<script src="{baseURL}/static/js/uuid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
+        $('#id__id').val(uuid.v1());
+        //$('#id__rev').val('');
         var userlist = [];
         var users = require("users");
+        var session = require("session");
         users.list(function (err, list) {
             if (list) {
                 $.each(list, function(key, val) {
@@ -19,8 +23,10 @@
         });  
         userlist.sort();
         $('#id_volunteer').typeahead({source: userlist, items:5});
-        $("fieldset:contains('Date')").attr('id', 'date-fieldset');
-        $('#date-fieldset').collapse('hide');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
+        session.info(function (err, info) {
+            if (err) {console.log(err)}// an error occurred getting session info
+            else {$('#id_volunteer').val(info.userCtx.name)};    // set volunteer id to logged in user's ID by default
+        });
     });
 </script>

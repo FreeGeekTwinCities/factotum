@@ -1,12 +1,21 @@
-<h2>Index of timesheets</h2>
+<script src="{baseURL}/static/js/moment.min.js"></script>
+<script src="{baseURL}/static/js/pluralize.js"></script>
+<h2>Time Tracking</h2>
 
-<p><a href="{baseURL}/timesheet/add">New timesheet</a></p>
+<h3><a href="{baseURL}/timesheet/add">Enter your Volunteer Hours</a></h3>
 
 {?timesheets}
   <h3>Recent Work:</h3>
   <ul>
 	{#timesheets}
-	    <li>{value.volunteer} spent {value.hours} hours on {value.work_type}</li>
+	    <li>
+	    <!-- subtract a month for display, since we store "human" months (starting with 1), while JavaScript expects zero-indexed months -->
+	    <script>date_array = [{value.date}]; date_array[1] = date_array[1] - 1; document.write(moment(date_array).fromNow());</script> 
+	    {value.volunteer} spent {value.hours} 
+	    <!-- use Oran Looney's pluralize library to make the 'hours' display more readable -->
+	    <script>document.write(owl.pluralize('hour', {value.hours}));</script> 
+	    on {value.work_type} <a href="timesheet/edit/{value._id}"><i class="icon-edit"></i></a>
+        </li>
   	{/timesheets}
   </ul>
  {:else}
