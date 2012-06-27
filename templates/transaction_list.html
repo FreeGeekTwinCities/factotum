@@ -1,3 +1,4 @@
+<script src="{baseURL}/static/js/moment.min.js"></script>
 <h2>Index of transactions</h2>
 
 <p><a href="{baseURL}/transaction/add">New Transaction</a></p>
@@ -6,9 +7,15 @@
   <h3>Recent Transactions:</h3>
   <ul>
 	{#transactions}
-	    <li><a href="{baseURL}/transaction/{value._id}"><script>var d=new Date({value.date});var n=d.toLocaleString();document.write(n)</script> {value.party.name} {value.transaction_type}</a> <!--<a href="transaction/edit/{value._id}"><i class="icon-edit"></i></a>--></li>
+	    <li><a href="{baseURL}/transaction/{value._id}">
+	    {?value.date}
+		<script>date_array = [{value.date}]; date_array[1] = date_array[1] - 1; var d = new Date(date_array.toString()); document.write(d.toLocaleString());</script> 
+	    {:else}
+		<script>var d = new Date({value.audit.createdTime}); document.write(d.toLocaleString());</script>
+	    {/value.date}
+	    {value.party.name} {value.transaction_type}</a> <!--<a href="transaction/edit/{value._id}"><i class="icon-edit"></i></a>--></li>
   	{/transactions}
   </ul>
- {:else}
+{:else}
   <p>No transactions.</p>
 {/transactions}
