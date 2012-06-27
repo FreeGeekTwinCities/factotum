@@ -9,9 +9,9 @@
 	{#transactions}
 	    <li><a href="{baseURL}/transaction/{value._id}">
 	    {?value.date}
-		<script>date_array = [{value.date}]; date_array[1] = date_array[1] - 1; var d = new Date(date_array.toString()); document.write(d.toLocaleString());</script> 
+		<script>date_array = [{value.date}]; date_array[1] = date_array[1] - 1; var d = new Date(date_array.toString()); document.write(d.toDateString());</script> 
 	    {:else}
-		<script>var d = new Date({value.audit.createdTime}); document.write(d.toLocaleString());</script>
+		<script>var d = new Date({value.audit.createdTime}); document.write(d.toDateString());</script>
 	    {/value.date}
 	    {value.party.name} {value.transaction_type}</a> <!--<a href="transaction/edit/{value._id}"><i class="icon-edit"></i></a>--></li>
   	{/transactions}
