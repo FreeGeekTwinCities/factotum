@@ -9,7 +9,7 @@
 	{#transactions}
 	    <li><a href="{baseURL}/transaction/{value._id}">
 	    {?value.date}
-		<script>date_array = [{value.date}]; date_array[1] = date_array[1] - 1; var d = new Date(date_array.toString()); document.write(d.toDateString());</script> 
+		<script>var transaction_date = new Date([{value.date}]); document.write(transaction_date.toLocaleDateString())</script> 
 	    {:else}
 		<script>var d = new Date({value.audit.createdTime}); document.write(d.toDateString());</script>
 	    {/value.date}
