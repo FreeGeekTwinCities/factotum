@@ -16,9 +16,12 @@
         //var users = require("users");
         //var session = require("session");
         var db = require('db').current();
-        db.getView('frontdesk', 'volunteers', null, function (err, response) {
+        db.getView('frontdesk', 'volunteers', {'group': true}, function (err, response) {
             if (response) {
-                console.log(response);
+                $.each(response.rows, function(key, val) {
+                    userlist.push(val.key);
+                    console.log(val);
+                });
             };
             if (err) {
                 console.log(err);
