@@ -12,9 +12,9 @@
 	    <tr>
 	        <td>
 	            {?value.date}
-		            <script>var transaction_date = new Date({value.date}); document.write(transaction_date.toISOString())</script> 
+		            {value.date} 
         	    {:else}
-		            <script>var d = new Date({value.audit.createdTime}); document.write(d.toISOString());</script>
+		            <script>var d = new Date({value.audit.createdTime}); document.write(d.getFullYear() + "," + d.getMonth() + "," + d.getDate());</script>
         	    {/value.date}
             </td>
 	        <td>{value.party.name}</td> 
