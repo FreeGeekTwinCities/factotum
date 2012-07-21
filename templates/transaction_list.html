@@ -14,7 +14,7 @@
 	            {?value.date}
 		            <script>var transaction_date = new Date({value.date}); document.write(transaction_date.toISOString())</script> 
         	    {:else}
-		            <script>var d = new Date({value.audit.createdTime}); document.write(d.toDateString());</script>
+		            <script>var d = new Date({value.audit.createdTime}); document.write(d.toISOString());</script>
         	    {/value.date}
             </td>
 	        <td>{value.party.name}</td> 
