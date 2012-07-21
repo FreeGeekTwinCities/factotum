@@ -12,7 +12,7 @@
 	    <tr>
 	        <td>
 	            {?value.date}
-		            <script>var transaction_date = new Date([{value.date}]); document.write(transaction_date.toLocaleDateString())</script> 
+		            <script>var transaction_date = new Date({value.date}); document.write(transaction_date.toISOString())</script> 
         	    {:else}
 		            <script>var d = new Date({value.audit.createdTime}); document.write(d.toDateString());</script>
         	    {/value.date}
