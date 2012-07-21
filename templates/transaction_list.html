@@ -12,10 +12,11 @@
 	    <tr>
 	        <td>
 	            {?value.date}
-		            {value.date} 
+		            <script>var d = new Date({value.date});</script> 
         	    {:else}
-		            <script>var d = new Date({value.audit.createdTime}); document.write(d.getFullYear() + "," + d.getMonth() + "," + d.getDate());</script>
+		            <script>var d = new Date({value.audit.createdTime});</script> 
         	    {/value.date}
+        	    <script>document.write(d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate());</script>
             </td>
 	        <td><a href="{baseURL}/transaction/{value._id}">{value.party.name}</a></td> 
 	        <td>{value.transaction_type}</td>

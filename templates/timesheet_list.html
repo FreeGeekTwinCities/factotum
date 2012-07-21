@@ -10,7 +10,14 @@
   <thead><tr><th>Date</th><th>Volunteer</th><th>Work Type</th><th>Hours</th></tr></thead>
 	{#timesheets}
 	    <tr>
-	        <td>{value.date}</td>
+	        <td>
+	            {?value.date.year}
+	                <script>var d = new Date({value.date.year},{value.date.month},{value.date.day});</script>
+	            {:else}
+	                <script>var d = new Date({value.date});</script>
+	            {/value.date.year}
+	            <script>document.write(d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate());</script>
+            </td>
 	        <td><a href=/frontdesk/_design/frontdesk/_list/volunteer_timesheet/timesheets_by_volunteer?key="{value.volunteer}">{value.volunteer}</a></td> 
 	        <td>{value.work_type}</td>
 	        <td>{value.hours}</td>
