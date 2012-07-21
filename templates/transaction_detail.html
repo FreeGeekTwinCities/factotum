@@ -39,7 +39,7 @@
             </tr>
             <script>transaction_total += {.extended_price}</script>
         {/transaction.items}
-        <script>if (transaction_total != 0) {document.write('<tr><td colspan=3 style="text-align:right"><strong>Total:</strong></td><td><strong>$' + transaction_total + '</strong></td></tr>')}</script>
+        <script>if (transaction_total != 0) {document.write('<tr><td colspan=3 style="text-align:right"><strong>Total:</strong></td><td><strong>$' + transaction_total.toFixed(2) + '</strong></td></tr>')}</script>
     </table>
     <br/>
     {/transaction.items}
