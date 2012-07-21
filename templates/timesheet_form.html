@@ -1,3 +1,5 @@
+{userlist}
+
 <h1>{form_title}</h1>
 
 <form method="{method}" action="{action}">
@@ -11,16 +13,25 @@
     $(document).ready(function() {
         $('#id__id').val(uuid.v1());
         var userlist = [];
-        var users = require("users");
-        var session = require("session");
-        users.list(function (err, list) {
-            if (list) {
-                $.each(list, function(key, val) {
-                    userlist.push(val.id.split(':')[1]);
-                });
+        //var users = require("users");
+        //var session = require("session");
+        var db = require('db').current();
+        db.getView('frontdesk', 'volunteers', null, function (err, response) {
+            if (response) {
+                console.log(response);
             };
-        });  
-        userlist.sort();
+            if (err) {
+                console.log(err);
+            };
+        });
+        //users.list(function (err, list) {
+        //    if (list) {
+        //        $.each(list, function(key, val) {
+        //            userlist.push(val.id.split(':')[1]);
+        //        });
+        //    };
+        //});  
+        //userlist.sort();
         $('#id_volunteer').typeahead({source: userlist, items:5});
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
         //2012.06.20 bdunnette: disabled the session.info function, since it seems to cause issues when users aren't logged in
