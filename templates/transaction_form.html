@@ -33,8 +33,9 @@
         //$('#id__rev').val('');
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
-        var people = [];
         var db = require("db").current();
+
+        var people = [];
         db.getView('frontdesk', 'people', {'group': true}, function (err, response) {
             if (response) {
                 $.each(response.rows, function(key, val) {
@@ -42,6 +43,17 @@
                 });
             } else {console.log(err)};
         });
+
+        var cities = [];
+        db.getView('frontdesk', 'cities', {'group': true}, function (err, response) {
+            if (response) {
+                $.each(response.rows, function(key, val) {
+                    cities.push(val.key);
+                });
+            } else {console.log(err)};
+        });
+
         $('#id_party_name').typeahead({source: people, items:5});
+        $('#id_party_city').typeahead({source: cities, items:3});
     });
 </script>

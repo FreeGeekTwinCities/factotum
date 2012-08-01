@@ -1,7 +1,7 @@
 {
     "name": "frontdesk",
-    "version": "0.0.5",
-    "description": "a prototype application to track 'front desk' info",
+    "version": "0.1.0",
+    "description": "A CouchApp to track donation, sale, and volunteer information",
     "load": "lib/app",
     "modules": "lib",
     "attachments": "static",
