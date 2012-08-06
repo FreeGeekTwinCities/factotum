@@ -5,6 +5,9 @@
   <input type="submit" value="{button}"/>
 </form>
 
+<p>Need a password? Try: <input type="text" id="suggest_pass" readonly="readonly"/></p>
+
+<script src="{baseURL}/static/js/geekpass.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var users = require("users");
@@ -13,8 +16,8 @@
             userid = $('#id_username').val();
             console.log(userid);
             users.get(userid, function (err, doc) {
-                if (doc) {$('#username_status').removeClass('label-success'); $('#username_status').addClass('label-important'); $('#username_status').text('User already exists!');}
-                else {$('#username_status').removeClass('label-important'); $('#username_status').addClass('label-success');$('#username_status').text('Username is OK!');}; // there was an error fetching the user document
+                if (doc) {$('#username_status').removeClass('label-success'); $('#username_status').addClass('label-important'); $('#username_status').text('User ' + doc.name + ' already exists!');}
+                else {$('#username_status').removeClass('label-important'); $('#username_status').addClass('label-success');$('#username_status').text('Username is OK');}; // there was an error fetching the user document
             });
         };
         function generateUsername () {
@@ -22,12 +25,16 @@
             family_name = $('#id_name_family').val().toLowerCase(); 
             $('#id_username').val(first_initial + family_name);
         };
-        $('#id_username').change(function () {checkUsername();});
+        function setID () {
+            $('#id__id').val('org.couchdb.user:' + $('#id_username').val());
+        };
+        $('#id_username').change(function () {checkUsername(); setID();});
         //users.get($('#id_username').val()), function (err, doc) {
         //    if (err) {console.log(err);}// there was an error fetching the user document
         //    else  {console.log('User exists: ', doc);}// success
         //});
         $('#id_name_given').change(function () {generateUsername(); checkUsername();});
         $('#id_name_family').change(function () {generateUsername(); checkUsername();});
+        $('#suggest_pass').val(suggestPass());
     });
 </script>
