@@ -14,37 +14,17 @@ Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since [Ubun
 
 ## Install 
 
-The easiest way to install, once you have CouchDB running, is to take advantage of its replication features - either download and run the [replicate-iriscouch script](./replicate-iriscouch.sh), or manually:
+[Install Kanso](http://kan.so/install)
 
-1. Go to your CouchDB's [Futon](http://guide.couchdb.org/draft/tour.html#welcome) - if you're installing on localhost, this is normally: http://localhost:5984/_utils
-2. Create a "frontdesk" database
-3. Visit the Replication section
-4. Replicate from our demo database: http://fgtc.iriscouch.com/frontdesk 
-
-## Usage
-
-Manage your transactions with the Kanso admin - if you pushed to a CouchDB on localhost, the URL will be something like:
-
-http://localhost:5984/frontdesk/_design/admin/_rewrite/frontdesk/
-
-To see a list of existing transactions, go to:
-
-http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
-
-## Development
-Install [Kanso](http://kan.so/install)
-
-This app uses the Kanso admin to edit your data.  Push the frontdesk and admin apps
-to your "couch" once you clone or unpack them:
-
+Then, get a copy of the code:
 ```
 git clone https://github.com/bdunnette/frontdesk
 cd frontdesk
 kanso push frontdesk
 ```
 
-```
-git clone https://github.com/mandric/admin
-cd admin
-kanso push frontdesk
-```
+## Usage
+
+To see a list of existing transactions, go to:
+
+http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
