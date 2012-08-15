@@ -27,4 +27,4 @@ kanso push frontdesk
 
 To see a list of existing transactions, go to:
 
-[http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/]
+http://localhost:5984/frontdesk/_design/frontdesk/_rewrite/
