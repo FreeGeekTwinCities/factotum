@@ -46,9 +46,13 @@
     
     {?transaction.payments}
         <table class="table table-striped table-bordered">
-            <tr><th>Payment Received</th><tr>
+            <tr><th>{payment_header}</th><tr>
             {#transaction.payments}
-                <tr><td>{.}</td></tr>
+                {?.amount}
+                    <tr><td>${amount} {description}
+                {:else}
+                    <tr><td>{.}</td></tr>
+                {/.amount}
             {/transaction.payments}
         </table>
         <br/>
