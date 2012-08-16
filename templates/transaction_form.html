@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span8">
@@ -29,8 +30,7 @@
 <script src="{baseURL}/static/js/uuid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#id__id').val(uuid.v1());
-        //$('#id__rev').val('');
+        //$('#id__id').val(uuid.v1());
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
         var db = require("db").current();
@@ -55,5 +55,13 @@
 
         $('#id_party_name').typeahead({source: people, items:5});
         $('#id_party_city').typeahead({source: cities, items:3});
+        
+        if ($('#id__rev').val() != '') {
+            console.log($('#id__rev').val());
+            rev_split = $('#id__rev').val().split('-')
+            $('#id__rev').val((parseInt(rev_split[0]) + 1) + '-' + rev_split[1]);
+            console.log($('#id__rev').val());
+        }
+        
     });
 </script>
