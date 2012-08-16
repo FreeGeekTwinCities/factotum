@@ -16,7 +16,7 @@
 	    {:else}
             <script>var d = new Date({value.date});</script>
 	    {/.value.date.year}
-        <td><script>document.write(d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate());</script></td>
+        <td><a href=/_utils/document.html?frontdesk/{.value._id}><script>document.write(d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate());</script></a></td>
         <td>{.value.hours}</td>
         <td>{.value.work_type}</td>
         <td>{.value.description}</td>

@@ -33,6 +33,7 @@
         "users": null,
     	"session": null,
         "kanso-topbar": null,
-    	"git-info": null
+    	"git-info": null,
+	"datelib": null
     }
 }

@@ -16,7 +16,7 @@
     {transaction.party.email}
     </p>
     
-    <p><script>var transaction_date = new Date({transaction.date}); transaction_date.setMonth(transaction_date.getMonth()-1); document.write(transaction_date.toLocaleDateString())</script></p>
+    <p>{transaction_date_string}</p>
     
     {?transaction.items}
     <table class="table table-striped table-bordered">
@@ -65,3 +65,4 @@
             <tbody><tr><td>{transaction.comments}</td></tr></tbody>
         </table>
     {/transaction.comments}
+    <span class="noprint"><a href="/_utils/document.html?frontdesk/{transaction._id}">Edit Transaction</a></span>
