@@ -4,6 +4,7 @@
     <div class="span8">
         <!--Body content-->
         <h1>{form_title}</h1>
+        <abbr title="click this for new record ID - i.e. if you're getting 'document conflict' errors"><h6 id="doc_id" onclick="$('#id__id').val(uuid.v1()); $('#doc_id').text($('#id__id').val());"></h6></abbr>
 
         <form method="{method}" action="{action}">
           {form|s}
@@ -30,7 +31,8 @@
 <script src="{baseURL}/static/js/uuid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        //$('#id__id').val(uuid.v1());
+        $('#id__id').val(uuid.v1());
+        $('#doc_id').text($('#id__id').val());
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
         var db = require("db").current();

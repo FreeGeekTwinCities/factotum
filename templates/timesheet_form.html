@@ -1,7 +1,7 @@
 {userlist}
 
 <h1>{form_title}</h1>
-
+<abbr title="click this for new record ID - i.e. if you're getting 'document conflict' errors"><h6 id="doc_id" onclick="$('#id__id').val(uuid.v1()); $('#doc_id').text($('#id__id').val());"></h6></abbr>
 <form method="{method}" action="{action}">
   {form|s}
   <input type="submit" value="Save Timesheet" />
@@ -11,8 +11,9 @@
 <script src="{baseURL}/static/js/uuid.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#id__id').val(uuid.v1());
         var userlist = [];
+        $('#id__id').val(uuid.v1());
+        $('#doc_id').text($('#id__id').val());
         //var users = require("users");
         //var session = require("session");
         var db = require('db').current();
@@ -20,7 +21,7 @@
             if (response) {
                 $.each(response.rows, function(key, val) {
                     userlist.push(val.key);
-                    console.log(val);
+                    //console.log(val);
                 });
             };
             if (err) {
