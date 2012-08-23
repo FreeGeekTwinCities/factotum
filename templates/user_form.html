@@ -14,7 +14,7 @@
         $(' <span id="username_status" class="label label-important">Please enter a username</span>').insertAfter('#id_username');
         function checkUsername () {
             userid = $('#id_username').val();
-            console.log(userid);
+            //console.log(userid);
             users.get(userid, function (err, doc) {
                 if (doc) {$('#username_status').removeClass('label-success'); $('#username_status').addClass('label-important'); $('#username_status').text('User ' + doc.name + ' already exists!');}
                 else {$('#username_status').removeClass('label-important'); $('#username_status').addClass('label-success');$('#username_status').text('Username is OK');}; // there was an error fetching the user document
