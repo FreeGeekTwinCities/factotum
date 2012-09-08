@@ -5,12 +5,12 @@
 
 <table class="table table-striped table-bordered" id="data">
     <thead>
-        <tr><th>Year/Month</th><th>Items/Lines Sold</th><th>Total Value of Sales</th></tr>
+        <tr><th>Year/Month</th><th>Total Value of Sales</th></tr>
     </thead>
 
     <tbody>
     {#sales}
-        <tr><td>{key}</td><td>{value.count}</td><td>{value.sum}</td></tr>
+        <tr><td>{key}</td><td>{value}</td></tr>
     {/sales}
     </tbody>
 </table>
