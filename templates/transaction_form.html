@@ -56,7 +56,9 @@
         });
 
         $('#id_party_name').typeahead({source: people, items:5});
+        $('#id_party_name').attr('autocomplete', 'off');
         $('#id_party_city').typeahead({source: cities, items:3});
+        $('#id_party_city').attr('autocomplete', 'off');
         
         if ($('#id__rev').val() != '') {
             console.log($('#id__rev').val());

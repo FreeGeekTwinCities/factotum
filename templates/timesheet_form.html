@@ -37,6 +37,7 @@
         //});  
         //userlist.sort();
         $('#id_volunteer').typeahead({source: userlist, items:5});
+        $('#id_volunteer').attr('autocomplete', 'off');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
         //2012.06.20 bdunnette: disabled the session.info function, since it seems to cause issues when users aren't logged in
         //session.info(function (err, info) {

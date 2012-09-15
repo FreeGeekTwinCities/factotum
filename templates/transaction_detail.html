@@ -48,11 +48,14 @@
         <table class="table table-striped table-bordered">
             <tr><th>{payment_header}</th><tr>
             {#transaction.payments}
+                <script>console.log({.});</script>
+                <tr><td>
                 {?.amount}
-                    <tr><td>${amount} {description}
+                    ${amount}                     
                 {:else}
-                    <tr><td>{.}</td></tr>
+                    {.}
                 {/.amount}
+                </td></tr>
             {/transaction.payments}
         </table>
         <br/>
@@ -66,3 +69,9 @@
         </table>
     {/transaction.comments}
     <span class="noprint"><a href="/_utils/document.html?frontdesk/{transaction._id}">Edit Transaction</a></span>
+    
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log({payment_header});
+    });
+</script>
