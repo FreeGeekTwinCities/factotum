@@ -1,11 +1,23 @@
-{userlist}
-
-<h1>{form_title}</h1>
-<abbr title="click this for new record ID - i.e. if you're getting 'document conflict' errors"><h6 id="doc_id" onclick="$('#id__id').val(uuid.v1()); $('#doc_id').text($('#id__id').val());"></h6></abbr>
-<form method="{method}" action="{action}">
-  {form|s}
-  <input type="submit" value="Save Timesheet" />
-</form>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8">
+        <!--Main content-->
+        <h1>{form_title}</h1>
+        <abbr title="click this for new record ID - i.e. if you're getting 'document conflict' errors"><h6 id="doc_id" onclick="$('#id__id').val(uuid.v1()); $('#doc_id').text($('#id__id').val());"></h6></abbr>
+        <form method="{method}" action="{action}">
+          {form|s}
+          <input type="submit" value="Save Timesheet" />
+        </form>
+    </div>
+    
+    <div class="span4">
+      <!--Sidebar content-->
+      <h3>Timesheet Entry Tips:</h3>
+      <ul>
+        <li>If you're a new volunteer, <strong>enter your first initial and last name - all lower-case - under Volunteer</strong>; for example, if your name is <em>John Smith</em>, enter <em>jsmith</em></li>
+        <li>Make sure you <strong>use the same volunteer ID each time</strong> you log your hours - otherwise, your "total hours" may show up incorrectly!</li>
+      </ul>
+    </div>
 
 <script src="{baseURL}/static/js/bootstrap-datepicker.js"></script>
 <script src="{baseURL}/static/js/uuid.js"></script>
