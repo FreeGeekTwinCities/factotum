@@ -2,7 +2,16 @@
 
 <h2>Transactions</h2>
     <ul>
-        <li><a href="/frontdesk/_design/frontdesk/_list/sales_report/sales_by_date?group_level=2">Monthly Sales<a></li>
+		<li><a id="end_of_day" href="">End-of-Day Sales Summary</a></li>
+        <li><a href="../_list/sales_report/sales_by_date?group_level=2">Monthly Sales<a></li>
+        <li><a href="{baseURL}/reports/sales/credit">Credit Sales<a></li>
     </ul>
     
 <h2>Volunteers</h2>
+
+<script>
+$(document).ready(function() {
+	var now=new Date();
+	$("#end_of_day").attr("href", "../_list/sales_report/sales_by_date?group_level=3&key=[\"" + now.getFullYear() + "\",\"" + String('00'+(new Date().getMonth()+1)).slice(-2) + "\",\"" + String('00'+(new Date().getDate())).slice(-2) + "\"]")
+});
+</script>
