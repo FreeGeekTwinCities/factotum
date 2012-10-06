@@ -1,23 +1,31 @@
-<script>var transaction_total = 0</script>
-    <!-- TODO: Eventually, logo and address, etc. (branding) should be stored outside of template -->
-    <div class="logo"><h1>Free<br/>Geek</h1>Twin Cities</div>
-    
-    <div class="receipt-header">{transaction.transaction_type}<br/>Receipt</div>
+	<script>var transaction_total = 0</script>
 
-    <div style="float:right; clear:right; text-align:right"><p>Free Geek Twin Cities is an<br/>all-volunteer organization that <br/>reuses and recycles computers<br/>to provide technical education<br/>and access to our community.</p></div>
-    
-    <p>Free Geek Twin Cities<br/>
-    2537 25th Ave S<br/>
-    Minneapolis, MN 55406<br/>
-    http://freegeektwincities.org</p>
-    
-    <p>
-    <strong>{transaction.party.name}</strong><br/>
-    {transaction.party.email}
-    </p>
-    
-    <p>{transaction_date_string}</p>
-    
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+		<!-- TODO: Eventually, logo and address, etc. (branding) should be stored outside of template -->
+		<div class="logo"><h1>Free<br/>Geek</h1>Twin Cities</div>
+		
+		<p>Free Geek Twin Cities<br/>
+		2537 25th Ave S<br/>
+		Minneapolis, MN 55406<br/>
+		http://freegeektwincities.org</p>
+		
+		<p>
+		<strong>{transaction.party.name}</strong><br/>
+		{transaction.party.email}
+		</p>
+		
+		<p>{transaction_date_string}</p>
+	</div>
+	<div class="span4">
+		More content here...
+	</div>
+	<div class="span4">
+		<div class="receipt-header">{transaction.transaction_type}<br/>Receipt</div>
+
+		<p style="text-align:right">Free Geek Twin Cities is an<br/>all-volunteer organization that <br/>reuses and recycles computers<br/>to provide technical education<br/>and access to our community.</p>
+	</div>
     {?transaction.items}
     <table class="table table-striped table-bordered">
         <tr><th>Quantity</th><th>Description</th><th>Unit Price</th><th>Extended Price</th></tr>
