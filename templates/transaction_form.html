@@ -35,6 +35,8 @@
         $('#doc_id').text($('#id__id').val());
         $("fieldset:contains('Date')").attr('id', 'date-fieldset');
         $('#id_date').datepicker({format: 'yyyy,mm,dd'});
+        var now = new Date();
+        $('#id_date').datepicker('setValue', now);
         var db = require("db").current();
 
         var people = [];
