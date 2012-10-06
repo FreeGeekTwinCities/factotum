@@ -18,8 +18,9 @@
 		
 		<p>{transaction_date_string}</p>
 	</div>
-	<div class="span4">
-		More content here...
+	<div class="span4" id="disclaimer">
+		<p id="donation_disclaimer">Free Geek Twin Cities is a tax-exempt, not-for profit organization (EIN #27-3563468) organized under Section 501(c)3 of the Internal Revenue Code. All donations are fully tax deductable to the extent allowable by law. Donations are non-refundable.</p>
+		<p id="sale_disclaimer">All sales are non-refundable.</p>
 	</div>
 	<div class="span4">
 		<div class="receipt-header">{transaction.transaction_type}<br/>Receipt</div>
@@ -41,11 +42,11 @@
                 
                 {?.extended_price}
                     <td>${.extended_price}</td>
+                    <script>transaction_total += {.extended_price}</script>
                 {:else}
                     <td></td>
                 {/.extended_price}
             </tr>
-            <script>transaction_total += {.extended_price}</script>
         {/transaction.items}
         <script>if (transaction_total != 0) {document.write('<tr><td colspan=3 style="text-align:right"><strong>Total:</strong></td><td><strong>$' + transaction_total.toFixed(2) + '</strong></td></tr>')}</script>
     </table>
@@ -80,6 +81,10 @@
     
 <script type="text/javascript">
     $(document).ready(function() {
-        console.log({payment_header});
+		var transaction_type = '{transaction.transaction_type}'.toLowerCase();
+        console.log(transaction_type);
+        $('#sale_disclaimer').hide();
+        $('#donation_disclaimer').hide();
+        $('#' + transaction_type + "_disclaimer").show()
     });
 </script>
