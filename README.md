@@ -1,6 +1,8 @@
-# FrontDesk
+# Factotum
 
 This is a basic application for tracking "front desk" info (sales and donations, as well as volunteer work) for Free Geek Twin Cities.
+
+It's called factotum because, well, it [does a bit of everything](http://en.wiktionary.org/wiki/factotum).
 
 ## Requirements
 Install [CouchDB](http://couchdb.apache.org), version 1.1 or later - since [Ubuntu only has 1.0](http://packages.ubuntu.com/search?keywords=couchdb) (grr), you can:
