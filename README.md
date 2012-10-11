@@ -33,10 +33,11 @@ If Factotum is already installed, and you want the latest version:
 + "Push" the application
 
 Here's how that process is carried out at FGTC:
+
 1. Log into our "ledger" server: `ssh fgtc@ledger`
 2. Change to the factotum directory: `cd factotum`
 3. Update the code: `git pull`
-4. (Optional) Update any pre-packaged Kanso modules: `kanso update`
+4. (Optional) Update any pre-packaged Kanso modules, such as jQuery: `kanso update`
 5. Send the updated code to the CouchDB server: `kanso push`
 
 ## Usage
