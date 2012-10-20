@@ -21,6 +21,9 @@
     },
     "dependencies": {
         "modules": null,
+        "underscore": null,
+        "backbone": null,
+        "backbone-d3": null,
         "properties": null,
         "attachments": null,
         "settings": null,
@@ -34,6 +37,7 @@
     	"session": null,
         "kanso-topbar": null,
     	"git-info": null,
-	"datelib": null
+		"datelib": null,
+		"crumbs": null
     }
 }

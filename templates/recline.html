@@ -1,0 +1,23 @@
+<script type="text/javascript" src="{baseURL}/static/js/underscore-min.js"></script>
+<script type="text/javascript" src="{baseURL}/static/js/backbone-min.js"></script>
+<script type="text/javascript" src="{baseURL}/static/js/recline.js"></script>
+<script type="text/javascript" src="{baseURL}/static/js/backend.couchdb.js"></script>
+
+<div class="ex-1"></div>
+
+<script type="text/javascript">
+	var dataset = new recline.Model.Dataset({
+		db_url: '/frontdesk',
+		view_url: '/frontdesk/_design/frontdesk/_view/people',
+		backend: 'couchdb',
+		query_options: {
+			'key': '_id'
+		}
+	});
+	
+	console.log(dataset);
+
+	dataset.fetch().done(function(dataset) {
+		console.log('records: ' + dataset.records);
+	});
+</script>
